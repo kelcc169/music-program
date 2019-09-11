@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
+import CONCERT from './CONCERT';
+
 import ProgramItem from './ProgramItem';
 
 const App = () => {
@@ -8,17 +10,13 @@ const App = () => {
 
   useEffect(() => {
     console.log('hello')
-    setConcert([{name: "Bach Double", composer: "Bach"},
-    {name: "Something", composer: "Somebody"},
-    {name: "Something Else", composer: "Somebody Else"}])
+    setConcert(CONCERT.concert)
   }, [])
 
   var contents;
   if (concert.length > 0) {
     contents = (
-      <div>
-        <ProgramItem concert={concert} />
-      </div>
+      <ProgramItem concert={concert} />
     )
   } else {
     contents = (<p>Loading</p>)
